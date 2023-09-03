@@ -30,7 +30,8 @@ namespace E_Cznae.UI.Forms
         private void RefreshForm()
         {
             textboxMedName.Text = string.Empty;
-            comboboxMedCategory.SelectedItem = null;
+			textBoxBarcode.Text = string.Empty;
+			comboboxMedCategory.SelectedItem = null;
             comboboxMedProducer.SelectedItem = null;
             numupdownMedPrice.Value = 0;
             numupdownMedStock.Value = 0;

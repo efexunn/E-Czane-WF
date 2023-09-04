@@ -168,5 +168,80 @@ namespace E_Czane.Business.Manager
             }
         }
 
+        public List<MedicineListDataGridModel> GetSearchedMedicineName(string text)
+        {
+            using (var conn = new DBManager())
+            {
+                string sql = $@"SELECT
+                            m.MedicineId,
+                            m.MedicineBarcode,
+                            m.MedicineName,
+                            c.CategoryName,
+                            p.ProducerName,
+                            m.MedicineStock,
+                            m.MedicinePrice
+                            FROM
+                            Medicine AS m
+                            INNER JOIN
+                            Category AS c
+                            ON
+                            c.CategoryId = m.MedicineCategoryId 
+                            INNER JOIN
+                            Producer AS p
+                            ON
+                            p.ProducerId = m.MedicineProducerId
+                            WHERE
+                            m.MedicineName
+                            LIKE
+                            '{text}%'";
+                return conn.Query<MedicineListDataGridModel>(sql);
+            }
+        }
+
+        public List<OrderDatagridModel> GetSearchedOrder(string text)
+        {
+            using(var conn = new DBManager())
+            {
+                string sql = $@"SELECT 
+                                MedicineId,
+                                MedicineBarcode,
+                                MedicineName,
+                                MedicinePrice,
+                                MedicineStock
+                                FROM
+                                Medicine
+                                WHERE
+                                1=1
+                                AND
+                                isActive=1
+								AND
+								MedicineName
+								LIKE
+								'{text}%'";
+                return conn.Query<OrderDatagridModel>(sql);
+            }
+        }
+
+        public List<AddMedicineDatagridModel> GetSearchedMedicineStock(string barcode)
+        {
+            using(var conn = new DBManager()) {
+                string sql = $@"SELECT
+                                MedicineId,
+                                MedicineBarcode,
+                                MedicineName,
+                                MedicineStock
+                                FROM 
+                                Medicine
+								WHERE
+								1=1
+								AND
+								isActive = 1
+								AND
+								MedicineBarcode
+								LIKE
+								'{barcode}%'";
+                return conn.Query<AddMedicineDatagridModel>(sql);
+            }
+        }
     }
 }

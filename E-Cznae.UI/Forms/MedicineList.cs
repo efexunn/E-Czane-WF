@@ -204,5 +204,10 @@ namespace E_Cznae.UI.Forms
 
             }
         }
-    }
+
+		private void textBoxSearchBar_TextChanged(object sender, EventArgs e)
+		{
+            transactions.ShowTable(dataGridViewMedicineList, medManager.GetSearchedMedicineName(textBoxSearchBar.Text), medManager.MedicineListColumnNames());
+		}
+	}
 }

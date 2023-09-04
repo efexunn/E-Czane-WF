@@ -78,8 +78,7 @@ namespace E_Cznae.UI.Forms
                 this.panelCart.Controls.Remove(labelMedName);
                 this.panelCart.Controls.Remove(labelToplamFiyat);
                 this.panelCart.Controls.Remove(labelMedPrice);
-
-            }
+			}
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -184,5 +183,10 @@ namespace E_Cznae.UI.Forms
             MessageBox.Show("Sipariş Başarıyla Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefreshForm();
         }
-    }
+
+		private void textBoxSearchBar_TextChanged(object sender, EventArgs e)
+		{
+            transactions.ShowTable(datagridOrderList, medManager.GetSearchedOrder(textBoxSearchBar.Text), medManager.OrderColumnNames());
+		}
+	}
 }

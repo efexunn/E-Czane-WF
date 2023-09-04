@@ -49,6 +49,7 @@ namespace E_Cznae.UI.Forms
         {
             RefreshForm();
         }
+
         private void datagridStock_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             panelInformation.Visible = true;
@@ -115,5 +116,9 @@ namespace E_Cznae.UI.Forms
             }
         }
 
-    }
+		private void textBoxBarcode_TextChanged(object sender, EventArgs e)
+		{
+            transactions.ShowTable(datagridStock, medManager.GetSearchedMedicineStock(textBoxBarcode.Text), medManager.AddMedicineColumnNames());
+		}
+	}
 }

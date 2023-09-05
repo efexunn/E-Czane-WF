@@ -243,5 +243,27 @@ namespace E_Czane.Business.Manager
                 return conn.Query<AddMedicineDatagridModel>(sql);
             }
         }
+
+        public List<OrderDatagridModel> GetOrderMedByProducer(int id)
+        {
+            using(var conn = new DBManager())
+            {
+                string sql = $@"SELECT 
+                                MedicineId,
+                                MedicineBarcode,
+                                MedicineName,
+                                MedicinePrice,
+                                MedicineStock
+                                FROM
+                                Medicine
+                                WHERE
+                                1=1
+                                AND
+                                isActive=1
+							AND
+							MedicineCategoryId = {id}";
+                return conn.Query<OrderDatagridModel>(sql);
+            }
+        }
     }
 }

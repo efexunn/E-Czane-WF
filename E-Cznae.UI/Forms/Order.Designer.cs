@@ -45,6 +45,9 @@
 			this.datagridOrderList = new System.Windows.Forms.DataGridView();
 			this.textBoxSearchBar = new System.Windows.Forms.TextBox();
 			this.labelSearchBar = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.comboboxMedCategory = new System.Windows.Forms.ComboBox();
+			this.btnFilter = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panelCart.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -203,7 +206,7 @@
 			this.textBoxSearchBar.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.textBoxSearchBar.Location = new System.Drawing.Point(139, 53);
 			this.textBoxSearchBar.Name = "textBoxSearchBar";
-			this.textBoxSearchBar.Size = new System.Drawing.Size(189, 24);
+			this.textBoxSearchBar.Size = new System.Drawing.Size(155, 24);
 			this.textBoxSearchBar.TabIndex = 23;
 			this.textBoxSearchBar.TextChanged += new System.EventHandler(this.textBoxSearchBar_TextChanged);
 			// 
@@ -219,12 +222,52 @@
 			this.labelSearchBar.TabIndex = 24;
 			this.labelSearchBar.Text = "İlaç Adı";
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Maroon;
+			this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+			this.label1.Location = new System.Drawing.Point(307, 55);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(67, 19);
+			this.label1.TabIndex = 25;
+			this.label1.Text = "Kategori";
+			// 
+			// comboboxMedCategory
+			// 
+			this.comboboxMedCategory.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.comboboxMedCategory.FormattingEnabled = true;
+			this.comboboxMedCategory.Location = new System.Drawing.Point(380, 53);
+			this.comboboxMedCategory.Name = "comboboxMedCategory";
+			this.comboboxMedCategory.Size = new System.Drawing.Size(162, 24);
+			this.comboboxMedCategory.TabIndex = 27;
+			// 
+			// btnFilter
+			// 
+			this.btnFilter.BackColor = System.Drawing.Color.White;
+			this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnFilter.FlatAppearance.BorderSize = 0;
+			this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnFilter.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.btnFilter.ForeColor = System.Drawing.Color.Maroon;
+			this.btnFilter.Location = new System.Drawing.Point(548, 53);
+			this.btnFilter.Name = "btnFilter";
+			this.btnFilter.Size = new System.Drawing.Size(82, 24);
+			this.btnFilter.TabIndex = 23;
+			this.btnFilter.Text = "Filtrele";
+			this.btnFilter.UseVisualStyleBackColor = false;
+			this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+			// 
 			// Order
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.ClientSize = new System.Drawing.Size(1163, 740);
+			this.Controls.Add(this.btnFilter);
+			this.Controls.Add(this.comboboxMedCategory);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.labelSearchBar);
 			this.Controls.Add(this.textBoxSearchBar);
 			this.Controls.Add(this.datagridOrderList);
@@ -263,5 +306,8 @@
         private System.Windows.Forms.Label labelIdentityNumber;
 		private System.Windows.Forms.TextBox textBoxSearchBar;
 		private System.Windows.Forms.Label labelSearchBar;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ComboBox comboboxMedCategory;
+		private System.Windows.Forms.Button btnFilter;
 	}
 }

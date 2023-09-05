@@ -10,7 +10,7 @@ namespace E_Czane.Data.Models.DataGridModels
     {
         public int OrderId { get; set; }
         public string AdminUsername { get; set; }
-        public decimal TotalAmount { get; set; }
+        public decimal OrderTotalAmount { get; set; }
         public string CustomerIdentityNumber { get; set; }
 
     }

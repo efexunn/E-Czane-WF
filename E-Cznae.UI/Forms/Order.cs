@@ -48,7 +48,14 @@ namespace E_Cznae.UI.Forms
         private void RefreshForm(bool isActive = false, CustomersDbModel person = null)
         {
             transactions.ShowTable(datagridOrderList, medManager.OrderList(), medManager.OrderColumnNames());
-            if (isActive)
+
+            var categoryList = CategoryManager.GetCategoryList();
+			comboboxMedCategory.DataSource = categoryList;
+			comboboxMedCategory.ValueMember = "CategoryId";
+			comboboxMedCategory.DisplayMember = "CategoryName";
+            comboboxMedCategory.SelectedValue = 0;
+
+			if (isActive)
             {
                 labelIdentityNumber.Visible = true;
                 labelFullName.Visible = true;
@@ -70,6 +77,7 @@ namespace E_Cznae.UI.Forms
                 textBoxIdentityNumber.Visible = true;
                 labelTCkimlik.Visible = true;
                 btnReadIdentityNumber.Visible = true;
+                textBoxIdentityNumber.Text = "";
                 customer = person;
                 cart = null;
                 top = 25;
@@ -187,6 +195,12 @@ namespace E_Cznae.UI.Forms
 		private void textBoxSearchBar_TextChanged(object sender, EventArgs e)
 		{
             transactions.ShowTable(datagridOrderList, medManager.GetSearchedOrder(textBoxSearchBar.Text), medManager.OrderColumnNames());
+		}
+
+		private void btnFilter_Click(object sender, EventArgs e)
+		{
+            var filteredList = medManager.GetOrderMedByProducer((int)comboboxMedCategory.SelectedValue);
+            transactions.ShowTable(datagridOrderList, filteredList, medManager.OrderColumnNames());
 		}
 	}
 }

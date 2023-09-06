@@ -108,6 +108,11 @@
       <DependentUpon>PurchaseHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTransactions\FormsTransactions.cs" />
+    <Compile Include="PharmacyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PharmacyDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddMedicine.resx">
@@ -144,6 +149,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="PharmacyDataSet.xsc">
+      <DependentUpon>PharmacyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PharmacyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PharmacyDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PharmacyDataSet.xss">
+      <DependentUpon>PharmacyDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,6 +189,7 @@
     <Content Include="Images\admin-for-main.png" />
     <Content Include="Images\admin.png" />
     <Content Include="Images\customer.png" />
+    <Content Include="Images\e-czane-logo-genis.png" />
     <Content Include="Images\login-1.png" />
     <Content Include="Images\login-2.png" />
     <Content Include="Images\LOGO E-Czane.jpg" />

@@ -13,6 +13,12 @@ namespace E_Czane.Business.Manager
 {
     public class AdminManager
     {
+        /// <summary>
+        /// Parametre olarak verilen kullanıcı adı ve şifre değerlerini veri tabanı ile karşılaştırır
+        /// </summary>
+        /// <param name="username">Kullanıcı Adı</param>
+        /// <param name="password">Şifre</param>
+        /// <returns>Eğer girilen parametreler veri tabanı ile eşleşiyorsa bir Admin nesnesi döner</returns>
         public AdminViewModel isAdminExist(string username, string password)
         {
             using (var conn = new DBManager())
@@ -21,6 +27,10 @@ namespace E_Czane.Business.Manager
                 return conn.QuerySingle<AdminViewModel>(sql);
             }
         }
+        /// <summary>
+        /// Veri tabanında bulunan adminleri AdminDataGridModel sınıfına göre listeler
+        /// </summary>
+        /// <returns>AdminDataGridModel sınıfı türünde bir liste döner içersinde Admin tablosundan gelen veriler bulunur.</returns>
         public List<AdminDataGridModel> AdminList()
         {
             using (var conn = new DBManager())
@@ -46,6 +56,10 @@ namespace E_Czane.Business.Manager
                 return conn.Query<AdminDataGridModel>(sql);
             }
         }
+        /// <summary>
+        /// DataGrid'de bulunan sütun isimlerinin tanımlandığı bir fonksiyon
+        /// </summary>
+        /// <returns>İçersinde sütun isimlerinin bulunduğu bir ArrayList döner</returns>
         public ArrayList AdminColumnNames()
         {
             var arrList = new ArrayList()
@@ -58,7 +72,11 @@ namespace E_Czane.Business.Manager
             };
             return arrList;
         }
-
+        /// <summary>
+        /// Veri tabanına yeni bir Admin eklemek için kullanılır.
+        /// </summary>
+        /// <param name="newAdmin">AdminDbModel türünde eklenmek istenen Admin kaydını parametre alır</param>
+        /// <returns>Bool bir değer döner. Eğer işlem başarıla olursa true başarısız olursa false</returns>
         public bool AddNewAdmin(AdminDbModel newAdmin)
         {
             using(var conn = new DBManager())
@@ -67,6 +85,11 @@ namespace E_Czane.Business.Manager
                 return (result != null) ?  true :  false; 
             }
         }
+        /// <summary>
+        /// İstenilen Admin kaydını AdminId üzerinden sorgular ve AdminDbModel olarak döndürür
+        /// </summary>
+        /// <param name="id">Sorgulanmak istenen Adminin Id değeri</param>
+        /// <returns></returns>
         public AdminDbModel GetAdmin(int id)
         {
             using(var conn = new DBManager())
@@ -74,7 +97,10 @@ namespace E_Czane.Business.Manager
                 return conn.Get<AdminDbModel>(id);
             }
         }
-
+        /// <summary>
+        /// Var olan bir Admin kaydını güncellemek için kullanılır.
+        /// </summary>
+        /// <param name="model">Güncellenmek istenen AdminDbModel bir obje parametre alır.</param>
         public void UpdateAdmin(AdminDbModel model)
         {
             using(var conn = new DBManager())

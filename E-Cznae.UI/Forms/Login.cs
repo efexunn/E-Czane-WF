@@ -30,12 +30,14 @@ namespace E_Cznae.UI.Forms
                 mainPageForm.Show();
                 textBoxUsername.Text = "";
                 textBoxPassword.Text = "";
-            }
+			    btnLogin.Enabled = false;
+			}
             // Yanlış kullanıcı adı ve şifre için hata mesajı gösterir.
             else
             {
                 MessageBox.Show("Admin Kullanici adi veya sifrenizi kontrol ediniz", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         private void btnExit_Click(object sender, EventArgs e)
         {

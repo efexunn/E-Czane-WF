@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,10 @@ namespace E_Czane.Business.Transactions
     public abstract partial class aDapperContext:IDisposable
     {
         protected IDbConnection connection;
-        private string connectionString = "Server=localhost\\SQLEXPRESS;Database=Pharmacy;Trusted_Connection=True;";
+		private string connectionString = ConfigurationManager.ConnectionStrings["E_Cznae.UI.Properties.Settings.PharmacyConnectionString"].ConnectionString;
 
-        public aDapperContext(IDbConnection dbConnection)
+
+		public aDapperContext(IDbConnection dbConnection)
         {
             if(dbConnection != null)
             {
